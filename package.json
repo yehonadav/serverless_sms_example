@@ -1,0 +1,11 @@
+{
+  "name": "aws-sms-api",
+  "version": "1.0.0",
+  "description": "An AWS API to Send SMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --recursive"
+  },
+  "dependencies": {
+  }
+}

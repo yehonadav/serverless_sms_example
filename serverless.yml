@@ -1,0 +1,22 @@
+service: sms-example
+
+provider:
+  name      : aws
+  runtime   : nodejs12.x
+  memorySize: 128
+  timeout   : 5
+  stage     : ${opt:stage, 'dev'}
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "sns:*"
+      Resource: ["*"]
+
+functions:
+  send:
+    handler: index.send
+    description: API that sends SMS to a specified recipient
+    events:
+      - http:
+          path  : "/sendMessage"
+          method: post
